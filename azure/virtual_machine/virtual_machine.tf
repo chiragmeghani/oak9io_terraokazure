@@ -71,6 +71,7 @@ storage_data_disk {
     computer_name  = "hostname"
     admin_username = "testadmin"
     admin_password = "Password1234!"
+  # oak9: Configure azurerm_virtual_machine.os_profile.admin_password via secrets manager
   }
   
   os_profile_windows_config {
