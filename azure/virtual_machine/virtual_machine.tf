@@ -75,7 +75,7 @@ storage_data_disk {
   
   os_profile_windows_config {
     winrm {
-        protocol = "HTTP"
+        protocol = "https"
     }
 
   }
