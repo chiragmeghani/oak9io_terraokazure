@@ -57,6 +57,7 @@ resource "azurerm_key_vault" "key_vault_foo" {
 
 // Needed for Encrypted disk
 resource "azurerm_key_vault_key" "foo_key" {
+  # oak9: Define asset inventory tags
   name              = "foo-vault_key"
   key_vault_id      = azurerm_key_vault.key_vault_foo.id
   key_type          = ""
