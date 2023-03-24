@@ -39,7 +39,7 @@ resource "azurerm_application_gateway" "example_app_gateway" {
     name                  = local.http_setting_name
     cookie_based_affinity = "Disabled"
     port                  = 80
-    protocol              = "http"
+    protocol              = "Https"
 
     authentication_certificate {
     }
@@ -90,9 +90,9 @@ resource "azurerm_application_gateway" "example_app_gateway" {
   ssl_policy {
     policy_type = "Custom"
     
-    cipher_suites = []
+    cipher_suites = [] # oak9: ssl_policy.cipher_suites should be set to any of TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_256_GCM_SHA384, TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 
-    min_protocol_version = "tlsv1_1"
+    min_protocol_version = "tlsv1_2"
     disabled_protocols = []
   }
 
