@@ -8,6 +8,7 @@ resource "azurerm_application_gateway" "example_app_gateway" {
   sku {
     name     = "Standard_Small"
     tier     = "Standard"
+    # oak9: Use one of the following SKU(s) for Zone Redundancy: [Standard_V2, WAF_V2]
     # oak9: Use one of the following SKU(s) for Autoscaling and TLS offload Performance: [Standard_V2, WAF_V2]
     # oak9: Use one of the following SKU(s) for Web Application Firewall: [WAF_V2, WAF]
     capacity = 2
