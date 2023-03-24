@@ -63,6 +63,7 @@ resource "azurerm_key_vault_key" "foo_key" {
   key_size          = 2048
   curve = ""
   expiration_date = ""
+  # oak9: azurerm_key_vault_key.expiration_date is not configured
   not_before_date = ""
   # oak9: azurerm_key_vault_key.not_before_date is not configured
   key_opts = ["decrypt", "encrypt", "sign", "unwrapKey", "verify", "wrapKey"]
