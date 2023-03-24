@@ -8,6 +8,9 @@ resource "azurerm_resource_group" "example" {
 }
 
 resource "azurerm_virtual_network" "main" {
+  # oak9: microsoft_networkvirtual_networks.virtual_networks.address_space.address_prefixes is not configured
+  # oak9: azurerm_virtual_network.tags is not configured
+  # oak9: microsoft_networkvirtual_networks.virtual_networks.enable_ddos_protection is disabled, preventing protection of this virtual network from DDoS attacks
   name                = "${var.prefix}-network"
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.example.location
@@ -71,6 +74,7 @@ storage_data_disk {
     computer_name  = "hostname"
     admin_username = "testadmin"
     admin_password = "Password1234!"
+  # oak9: Configure azurerm_virtual_machine.os_profile.admin_password via secrets manager
   }
   
   os_profile_windows_config {
