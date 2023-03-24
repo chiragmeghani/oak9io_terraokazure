@@ -18,6 +18,7 @@ resource "azurerm_resource_group" "foo" {
 data "azurerm_client_config" "current" {}
 
 resource "azurerm_key_vault" "key_vault_foo" {
+  # oak9: Define asset inventory tags
   name                              = "foo-keyvault"
   location                          = azurerm_resource_group.foo.location
   resource_group_name               = azurerm_resource_group.foo.name
@@ -26,7 +27,7 @@ resource "azurerm_key_vault" "key_vault_foo" {
   enabled_for_disk_encryption       = true
   purge_protection_enabled          = true
   enabled_for_template_deployment   = true
-  enable_rbac_authorization         = false
+  enable_rbac_authorization         = true
 
   soft_delete_retention_days        = 7
   enabled_for_deployment            = true
@@ -57,6 +58,7 @@ resource "azurerm_key_vault" "key_vault_foo" {
 
 // Needed for Encrypted disk
 resource "azurerm_key_vault_key" "foo_key" {
+  # oak9: Define asset inventory tags
   name              = "foo-vault_key"
   key_vault_id      = azurerm_key_vault.key_vault_foo.id
   key_type          = ""
@@ -68,6 +70,7 @@ resource "azurerm_key_vault_key" "foo_key" {
 }
 
 resource "azurerm_key_vault_secret" "foo_secret" {
+  # oak9: Define asset inventory tags
   name = "foo-vault_secret"
   key_vault_id = azurerm_key_vault.key_vault_foo.id
 }

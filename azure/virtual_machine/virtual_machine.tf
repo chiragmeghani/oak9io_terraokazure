@@ -34,6 +34,8 @@ resource "azurerm_network_interface" "main" {
 }
 
 resource "azurerm_virtual_machine" "main" {
+  # oak9: Use Customer-managed keys for VM encryption
+  # oak9: Configure availability set
   name                  = "${var.prefix}-vm"
   location              = azurerm_resource_group.example.location
   resource_group_name   = azurerm_resource_group.example.name
