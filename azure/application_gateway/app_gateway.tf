@@ -99,6 +99,7 @@ resource "azurerm_application_gateway" "example_app_gateway" {
   ssl_certificate {
     name = "test-cert"
     key_vault_secret_id = ""
+    # oak9: Azure App Gateway SSL (TLS) certificate should have its key managed through a key vault
     password = "test-cert-pass"
   }
 }
